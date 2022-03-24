@@ -4,7 +4,6 @@ apply plugin: 'maven'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-    ndkVersion "21.0.6113669"
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 23
