@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
+    ndkVersion "21.1.6113669"
     defaultConfig {
         applicationId "com.potterhsu.rtsplibrary.demo"
         minSdkVersion 19
