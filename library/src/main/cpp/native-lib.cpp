@@ -101,16 +101,16 @@ Java_com_potterhsu_rtsplibrary_RtspClient_play(
     }
 
     img_convert_ctx = sws_getContext(ccontext->width, ccontext->height, ccontext->pix_fmt, ccontext->width, ccontext->height,
-                                     AV_PIX_FMT_RGB24, SWS_BICUBIC, NULL, NULL, NULL);
+                                     AV_PIX_FMT_ARGB24, SWS_BICUBIC, NULL, NULL, NULL);
 
     size_t size = (size_t) avpicture_get_size(AV_PIX_FMT_YUV420P, ccontext->width, ccontext->height);
     uint8_t *picture_buf = (uint8_t*)(av_malloc(size));
     AVFrame *pic = av_frame_alloc();
     AVFrame *picrgb = av_frame_alloc();
-    size_t size2 = (size_t) avpicture_get_size(AV_PIX_FMT_RGB24, ccontext->width, ccontext->height);
+    size_t size2 = (size_t) avpicture_get_size(AV_PIX_FMT_ARGB24, ccontext->width, ccontext->height);
     uint8_t *picture_buf2 = (uint8_t*)(av_malloc(size2));
     avpicture_fill( (AVPicture*) pic, picture_buf, AV_PIX_FMT_YUV420P, ccontext->width, ccontext->height );
-    avpicture_fill( (AVPicture*) picrgb, picture_buf2, AV_PIX_FMT_RGB24, ccontext->width, ccontext->height );
+    avpicture_fill( (AVPicture*) picrgb, picture_buf2, AV_PIX_FMT_ARGB24, ccontext->width, ccontext->height );
 
     isStop = false;
     while (!isStop && av_read_frame(context, &packet) >= 0) {
